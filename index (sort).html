@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+<title>SORT</title>	
+<style>
+body {background:black}	
+</style>	
+<meta charset="utf-8">
+<title>sort_my_stuff</title>
+<script type="text/javascript">
+	var blocks = [
+{type:"7", div:'<div style = "color: white; background-color:purple"> 7 </div>'},
+{type:"6", div:'<div style = "color: white; background-color:blue"> 6 </div>'},
+{type:"2", div:'<div style = "color: white; background-color:orange"> 2 </div>'},
+{type:"1", div:'<div style = "color: white; background-color:red"> 1  </div>'},
+{type:"4", div:'<div style = "color: white; background-color:green"> 4 </div>'},
+{type:"3", div:'<div style = "color: white; background-color:yellow"> 3  </div>'},
+{type:"5", div:'<div style = "color: white; background-color:#87CEFA"> 5 </div>'}
+		
+		]
+	
+	function displayBlocks() {
+  document.getElementById("demo").innerHTML =
+  blocks[0].div + "<br>" +
+  blocks[1].div + "<br>" +
+  blocks[2].div + "<br>" +
+  blocks[3].div + "<br>" +
+  blocks[4].div + "<br>" +
+  blocks[5].div + "<br>" +
+  blocks[6].div;
+}
+
+displayBlocks();
+
+function SortStuff() {
+    blocks.sort(function(a, b){
+        var x = a.type.toLowerCase();
+        var y = b.type.toLowerCase();
+        if (x < y) {return -1;}
+        if (x > y) {return 1;}
+        return 0;
+    });
+    displayBlocks();
+}
+</script>
+</head>
+<body onLoad = "displayBlocks()">
+<button onclick="SortStuff()">Sort me</button>
+<p id="demo"> </p>
+</body>
+</html>
